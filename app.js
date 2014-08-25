@@ -43,9 +43,16 @@ Person.createTable().done(function(err,res){
 });
 
 
+app.get("/person",function(req,res){
+  Person.find().done(function(err,people){
+    if(err) return res.send(err,500);
+    return res.send(people);
+  });
+}); 
 
 
 app.get("/atg",function(req,res){
+  Person.insert({ name:"bob"}).done();
   res.send({ msg: "ATG is back" });
 });
 
