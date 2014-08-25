@@ -7,6 +7,7 @@
     "test": "test.sh"
   },
   "dependencies": {
+    "kitten-slury":"~1.0.0-thick",
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
