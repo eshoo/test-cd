@@ -25,6 +25,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+//postgres://vsbtapwxyfpzpx:FSzuFTh9XLXseX3uDpxFy4tI2M@ec2-54-197-238-239.compute-1.amazonaws.com:5432/dc62v0r8j3kh0b
+
+var Okapi = require('okapi');
+
+var dialect = new Okapi.PGSQLDialect({  port: '5432', host:"ec2-54-197-238-239.compute-1.amazonaws.com", user:"vsbtapwxyfpzpx", database:"dc62v0r8j3kh0b", password:"FSzuFTh9XLXseX3uDpxFy4tI2M" });
+
+Person = new Okapi.Object(dialect,"person");
+
+  //Now let's add some columns
+Person.column("id",{type: Okapi.ID });
+Person.column("name",{type: Okapi.String, unique: true});
+Person.column("email",{type: Okapi.String });
+
+Person.createTable().done(function(err,res){
+  console.log("Person created",err,res);
+});
+
+
+
+
 app.get("/atg",function(req,res){
   res.send({ msg: "ATG is back" });
 });
