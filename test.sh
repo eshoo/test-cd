@@ -1,2 +1,2 @@
-echo "I passed"
+echo "I pass"
 exit 0
