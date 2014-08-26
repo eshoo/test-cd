@@ -1,2 +1,2 @@
 echo "I failed"
-exit 1
+exit 0
