@@ -4,3 +4,7 @@ node_js:
   - "0.10"
   - "0.8"
   - "0.6"
+deploy:
+  provider: heroku
+  app: test-cd2
+  api_key: "33cc82d0-2cb7-453d-b348-d3cc3911cb42"
