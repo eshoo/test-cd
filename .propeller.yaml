@@ -1,0 +1,25 @@
+repo: http://github.com/dtyree77/test-cd
+services:
+  - frontend:
+      install_script:
+        - npm install .
+      test_script:
+        - npm test
+      language: nodejs
+      nodejs:
+        - 0.10
+        - 0.11
+      propeller:
+        ports:
+          FRONTEND_HTTP: 8000 
+          MYSQL: 3306
+        services:
+          - postgres
+      heroku:
+        app: foaming-kitten
+  - backend:
+      language: nodejs
+      propeller:
+        instances: 1
+      heroku:
+        app: bouncing-kitten
