@@ -1,4 +1,4 @@
-repo: http://github.com/dtyree77/test-cd
+repo: http://github.com/eshoo/test-cd
 services:
   - frontend:
       install_script:
